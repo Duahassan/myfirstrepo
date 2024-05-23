@@ -1,31 +1,31 @@
-'use client'
-import styles from "./page.module.css";
-import Navbar from "./navbar";
-import User from "@/User";
-import { useState } from "react";
+
+import { CounterProvider} from "./Context/Counter";
+import App from "./components/App";
+
 
 export default function Home() {
-  const[name, setName]= useState("Dua")
+  // const[name, setName]= useState("Dua")
 
-  const Rename=()=>{
-    setName("Learn here")
+  // const Rename=()=>{
+  //   setName("Learn here")
 
-  }
-  const Innercomponent= ()=>{
-    return(
+  // }
+  // const Innercomponent= ()=>{
+  //   return(
 
-      <h1>Innercomponent</h1>
-    )
-  }
-  return (
-    <main className={styles.main}>
-      <Navbar/>
-      <User name="User"/>
-      <h1>Events , functions and states {name}</h1>
-      <Innercomponent/>
-      <button onClick={()=>Rename()}>Click me</button>
-      
+  //     <h1>Innercomponent</h1>
+  //   )
+  // }
+  return (<>
+    <main className={""}>
+      <CounterProvider>
+      {/* <h1>Events , functions and states {name}</h1> */}
+      {/* <Innercomponent/> */}
+      {/* <button onClick={()=>Rename()}>Click me</button> */}
+     <App/>
+     </CounterProvider>
 
     </main>
+    </>
   );
 }

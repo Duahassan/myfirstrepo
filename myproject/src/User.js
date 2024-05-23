@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import noteContext from './app/context/notecontext'
 
-const User = (props) => {
+const User = () => {
+  const a =useContext(noteContext)
+  useEffect(()=>{
+    a.update();
+  }, [])
   return (
     <div>
-      <h2>Hello i'm {props.name} component</h2>
+      <h2>Hello this is {a.state.name} and I'm in class {a.state.class}</h2>
     </div>
   )
 }
