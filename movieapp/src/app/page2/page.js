@@ -2,7 +2,7 @@ import VideoPlayer from "./videoplayer";
 import MovieDetails from "./moviedetails";
 import Navbar from "../components/navbar";
 import Head from 'next/head';
-import Season from "./season";
+import EpisodeList from "./season";
 import CommentSection from "./commentsection";
 import Movieslike from "./Youmaylike"
 export default function Home() {
@@ -14,7 +14,13 @@ export default function Home() {
       </Head>
       <VideoPlayer />
       <MovieDetails title="Inception" />
-      <Season/>
+      <div className=" bg-black text-white justify-between">
+      <Head>
+        <title>Episode List</title>
+      </Head>
+        <EpisodeList />
+    </div>
+      {/* <Season/> */}
       <Movieslike/>
       <div className="min-h-screen  flex  justify-between">
       <CommentSection />
