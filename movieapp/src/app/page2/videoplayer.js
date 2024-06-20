@@ -11,7 +11,7 @@ const VideoPlayer = () => {
   const fetchPopularMovies = async () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve([{ Title: "Your Movie Title", VideoUrl: "path_to_your_video.mp4" }]);
+        resolve([{  VideoUrl: "path_to_your_video.mp4" }]);
       }, 1000);
     });
   };
