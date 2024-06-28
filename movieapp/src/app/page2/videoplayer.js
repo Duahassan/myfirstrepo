@@ -11,7 +11,7 @@ const VideoPlayer = () => {
   const fetchPopularMovies = async () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve([{  VideoUrl: "path_to_your_video.mp4" }]);
+        resolve([{ VideoUrl: "path_to_your_video.mp4" }]);
       }, 1000);
     });
   };
@@ -58,7 +58,6 @@ const VideoPlayer = () => {
             autoPlay
             className="w-full h-auto rounded-lg"
           />
-          
         </div>
       ) : (
         <p className="text-gray-500 text-center">No video available</p>

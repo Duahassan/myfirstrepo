@@ -1,9 +1,13 @@
 "use client";
 // components/MovieDetails.js
 import React, { useEffect, useState } from "react";
-import { fetchMovieDetails } from "../lib/fetchmovie";
+import { fetchMovies } from "../lib/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faClock, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarAlt,
+  faClock,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 
 const MovieDetails = ({ title }) => {
   const [movie, setMovie] = useState(null);
@@ -15,7 +19,7 @@ const MovieDetails = ({ title }) => {
       setLoading(true);
       setError(null);
       try {
-        const details = await fetchMovieDetails(title);
+        const details = await fetchMovies(title);
         setMovie(details);
       } catch (err) {
         setError(err.message);
@@ -49,7 +53,7 @@ const MovieDetails = ({ title }) => {
     Plot = "No plot available",
     Country = "N/A",
     Production = "N/A",
-    Actors = "N/A"
+    Actors = "N/A",
   } = movie;
 
   return (
@@ -85,9 +89,15 @@ const MovieDetails = ({ title }) => {
           <p className="text-gray-400 mb-4 leading-relaxed">{Plot}</p>
         </div>
         <div className="text-gray-400 mb-4">
-          <p><span className="font-semibold">Country:</span> {Country}</p>
-          <p><span className="font-semibold">Production:</span> {Production}</p>
-          <p><span className="font-semibold">Actors:</span> {Actors}</p>
+          <p>
+            <span className="font-semibold">Country:</span> {Country}
+          </p>
+          <p>
+            <span className="font-semibold">Production:</span> {Production}
+          </p>
+          <p>
+            <span className="font-semibold">Actors:</span> {Actors}
+          </p>
         </div>
         <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-full self-start">
           + Add to Favourite
@@ -98,4 +108,3 @@ const MovieDetails = ({ title }) => {
 };
 
 export default MovieDetails;
-

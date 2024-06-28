@@ -1,10 +1,10 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+"use client";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 
-const OMDB_API_URL = 'http://www.omdbapi.com/';
-const OMDB_API_KEY = '16d251ac'; // Your OMDB API key
+const OMDB_API_URL = "http://www.omdbapi.com/";
+const OMDB_API_KEY = "16d251ac"; // Your OMDB API key
 
 const Movieslike = () => {
   const [movies, setMovies] = useState([]);
@@ -19,12 +19,12 @@ const Movieslike = () => {
         );
 
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
 
-        if (data.Response === 'False') {
+        if (data.Response === "False") {
           throw new Error(data.Error);
         }
 
@@ -54,7 +54,11 @@ const Movieslike = () => {
         {movies.map((movie) => (
           <div key={movie.imdbID} className="w-52 rounded-lg items-center">
             <div>
-              <img className="rounded-lg w-full h-64 object-cover" src={movie.Poster} alt={movie.Title} />
+              <img
+                className="rounded-lg w-full h-64 object-cover"
+                src={movie.Poster}
+                alt={movie.Title}
+              />
             </div>
             <div className="flex  mt-2">
               <h3 className="text-white">{movie.Title}</h3>
@@ -63,7 +67,7 @@ const Movieslike = () => {
                   HD
                 </button>
                 <button className="bg-transparent hover:bg-red-300 ring-1 ring-orange-700 ring-inset text-white py-1 px-2 rounded flex items-center">
-                   Season
+                  Season
                 </button>
               </div>
             </div>
@@ -75,4 +79,3 @@ const Movieslike = () => {
 };
 
 export default Movieslike;
-

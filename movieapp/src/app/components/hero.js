@@ -24,7 +24,7 @@ const Hero = () => {
       <button className="bg-transparent flex items-center hover:bg-red-300 ring-1 ring-orange-700 ring-inset text-white font-bold py-2 px-4 sm:py-4 sm:px-5 rounded">
         Watch Later
         <FontAwesomeIcon
-          icon={faClock}
+          icon={faClock} 
           className="ml-2 h-4 w-4 text-green-50"
         />
       </button>
